@@ -1,0 +1,17 @@
+name: Repository structure
+
+on:
+  push:
+    branches: [main, feature/self-corrective-rag]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check README exists and is not empty
+        run: test -s README.md
